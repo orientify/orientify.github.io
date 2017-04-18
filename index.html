@@ -7,7 +7,7 @@
       // Initialize Firebase
       var config = {
         apiKey: "AIzaSyAfPN_WPOENsci6RduO6gcCZrSzq0PIwKY",
-        authDomain: "https://orientify.github.io",
+        authDomain: "fireapp-94ad5.firebaseapp.com",
         databaseURL: "https://fireapp-94ad5.firebaseio.com",
         projectId: "fireapp-94ad5",
         storageBucket: "fireapp-94ad5.appspot.com",
@@ -17,6 +17,10 @@
     </script>
     <script>
         var provider = new firebase.auth.GoogleAuthProvider();
+        provider.addScope('https://www.googleapis.com/auth/plus.login');
+        provider.setCustomParameters({
+          'login_hint': 'user@example.com'
+        });
         function signInToGoogle() {
             firebase.auth().signInWithRedirect(provider);
         }
@@ -29,7 +33,7 @@
         }
     </script>
     <button onclick="signInToGoogle()">Sign in</button>
-    <button onclick="signInToGoogle()">Sign out</button>
+    <button onclick="signOutToGoogle()">Sign out</button>
 
 <h1>My First Headingsss</h1>
 
