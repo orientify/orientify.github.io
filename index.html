@@ -1,6 +1,36 @@
 <!DOCTYPE html>
 <html>
 <body>
+    
+    <script src="https://www.gstatic.com/firebasejs/3.7.8/firebase.js"></script>    
+    <script>
+      // Initialize Firebase
+      var config = {
+        apiKey: "AIzaSyAfPN_WPOENsci6RduO6gcCZrSzq0PIwKY",
+        authDomain: "fireapp-94ad5.firebaseapp.com",
+        databaseURL: "https://fireapp-94ad5.firebaseio.com",
+        projectId: "fireapp-94ad5",
+        storageBucket: "fireapp-94ad5.appspot.com",
+        messagingSenderId: "584208919636"
+      };
+      firebase.initializeApp(config);
+    </script>
+    // Google sign-in
+    <script>
+        var provider = new firebase.auth.GoogleAuthProvider();
+        function signInToGoogle() {
+            firebase.auth().signInWithRedirect(provider);
+        }
+        function signOutFromGoogle() {
+            firebase.auth().signOut().then(function() {
+              // Sign-out successful.
+            }).catch(function(error) {
+              // An error happened.
+            }); 
+        }
+    </script>
+    <button onclick="signInToGoogle()">Sign in</button>
+    <button onclick="signInToGoogle()">Sign out</button>
 
 <h1>My First Heading</h1>
 
