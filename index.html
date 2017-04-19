@@ -63,7 +63,7 @@
     <script>
         function writeTrackName() {
             var test = document.getElementById('tekst').value;
-          firebase.database().ref('tracks').set({
+          firebase.database().ref('trackss').set({
             username: test
           });
         }
@@ -78,7 +78,7 @@
             var rada = document.getElementById('rada').value;
             var linn = document.getElementById('linn').value;
             var kaart = document.getElementById('kaart').value;
-          firebase.database().ref('tracks/' + rada).set({
+          firebase.database().ref('trackss/' + rada).set({
             city: linn,
             map: kaart
           });
