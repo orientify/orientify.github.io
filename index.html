@@ -2,6 +2,9 @@
 <html>
 <body>
     
+    <progress value="0" max="100" id="uploader"></progress>
+    <input type="file" value="upload" id="fileButton"/>
+    
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -15,6 +18,7 @@
           };
           firebase.initializeApp(config);
         </script>
+    
     <script>
         var provider = new firebase.auth.GoogleAuthProvider();
         function signInToGoogle() {
@@ -28,8 +32,37 @@
             }); 
         }
     </script>
+    
+    <script>
+        var uploader = document.getElementById('uploader');
+        var fileButton = document.getElementById('fileButton');
+        
+        fileButton.addEventListener('change', function(e){
+            var file = e.target.files[0];
+            
+            var storageRef = firebase.storage().ref('photos/' + file.name);
+            
+            storageRef.put(file);
+            
+            task.on('state_changed',
+                   function progress(snapshot) {
+                        var percentage = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
+                uploader.value = percentage;
+                
+            },
+                    function error(err){
+                
+            },
+                    function complete(){
+                
+            }
+                   )
+        })
+    </script>
+    
     <button onclick="signInToGoogle()">Sign in</button>
     <button onclick="signOutFromGoogle()">Sign out</button>
+    <input type="file" id="myFile">
 
 
 
