@@ -58,18 +58,21 @@
                );
         });
     </script>
-    
+    <button onclick="writeUserData()">writeuserdata</button>
+    <input type="text" id="tekst">
     <script>
-        function writeUserData(name) {
+        function writeUserData() {
+            var test = document.getElementById('tekst').value;
           firebase.database().ref('uzers/kaks').set({
-            username: name
+            username: test
           });
         }
     </script>
-    <button onclick="writeUserData('martin')">writeuserdata</button>
+    
     <button onclick="signInToGoogle()">Sign in</button>
     <button onclick="signOutFromGoogle()">Sign out</button>
-    <p>ss</p>
+    
+
 
 
 
