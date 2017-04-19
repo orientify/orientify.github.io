@@ -42,7 +42,7 @@
             
             var storageRef = firebase.storage().ref('photos/' + file.name);
             
-            storageRef.put(file);
+            var task = storageRef.put(file);
             
             task.on('state_changed',
                    function progress(snapshot) {
@@ -56,8 +56,8 @@
                     function complete(){
                 
             }
-                   )
-        })
+                   );
+        });
     </script>
     
     <button onclick="signInToGoogle()">Sign in</button>
