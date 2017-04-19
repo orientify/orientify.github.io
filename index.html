@@ -58,13 +58,29 @@
                );
         });
     </script>
-    <button onclick="writeUserData()">writeuserdata</button>
-    <input type="text" id="tekst">
+    <button onclick="writeTrackName()">Raja nimi</button>
+    <input type="text" id="tekst" placeholder="Raja nimi">
     <script>
-        function writeUserData() {
+        function writeTrackName() {
             var test = document.getElementById('tekst').value;
-          firebase.database().ref('uzers/kaks').set({
+          firebase.database().ref('tracks').set({
             username: test
+          });
+        }
+    </script>
+    
+    <button onclick="writeTrackInfo()">Raja info</button>
+    <input type="text" id="rada" placeholder="Raja nimi">
+    <input type="text" id="linn" placeholder="Linn">
+    <input type="text" id="kaart" placeholder="Kaardi nimi">
+    <script>
+        function writeTrackName() {
+            var rada = document.getElementById('rada').value;
+            var linn = document.getElementById('linn').value;
+            var kaart = document.getElementById('kaart').value;
+          firebase.database().ref('tracks/' + rada).set({
+            city: linn,
+            map: kaart
           });
         }
     </script>
