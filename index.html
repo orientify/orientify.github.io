@@ -2,7 +2,7 @@
 <html>
 <body>
     
-    <progress value="0" max="100" id="uploader"></progress>
+    <progress value="0" max="100" id="uploader">0%</progress>
     <input type="file" value="upload" id="fileButton"/>
     
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
@@ -46,17 +46,16 @@
             
             task.on('state_changed',
                    function progress(snapshot) {
-                        var percentage = (snapshot.bytesTranferred / snapshot.totalBytes) * 100;
-                uploader.value = percentage;
+                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+                        uploader.value = percentage;
+            },
+                function error(err){
                 
             },
-                    function error(err){
-                
-            },
-                    function complete(){
+                function complete(){
                 
             }
-                   );
+               );
         });
     </script>
     
