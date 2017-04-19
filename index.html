@@ -59,6 +59,14 @@
         });
     </script>
     
+    <script>
+        function writeUserData(name) {
+          firebase.database().ref('users/' + userId).set({
+            username: name
+          });
+        }
+    </script>
+    <button onclick="writeUserData(martin)">writeuserdata</button>
     <button onclick="signInToGoogle()">Sign in</button>
     <button onclick="signOutFromGoogle()">Sign out</button>
     <p>ss</p>
