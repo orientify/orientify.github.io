@@ -11,6 +11,6 @@ img {
 progress {
     margin: 10px;
 }
-.fileButton {
+#fileButton {
     text-align: center;
 }

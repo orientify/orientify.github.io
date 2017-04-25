@@ -10,7 +10,7 @@
 </head>
 <body>
     
-    <progress value="0" max="100" id="uploader">0%</progress>
+    <progress value="0" max="100" id="uploader">0%</progress><br>
     <input type="file" value="upload" id="fileButton"/>
     
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
@@ -74,7 +74,7 @@
         });
     </script>
   
-    <button onclick="writeTrackInfo()">Insert track</button>
+    
     <input type="text" id="rada" placeholder="Track name">
     <input type="text" id="linn" placeholder="City">
     <input type="text" id="kaart" placeholder="Map"><br>
@@ -98,15 +98,33 @@
     <input type="text" id="answer4" placeholder="Answer">
     <input type="text" id="choice4" placeholder="Choice">
     <input type="text" id="time4" placeholder="Time"><br>
+    <button onclick="writeTrackInfo()">Insert track</button>
     <script>
         function writeTrackInfo() {
             var rada = document.getElementById('rada').value;
             var linn = document.getElementById('linn').value;
             var kaart = document.getElementById('kaart').value;
-            var checkpoints = document.getElementById('checkpoints1').value;
-            var answer = document.getElementById('answer').value;
-            var choice = document.getElementById('choice').value;
-            var time = document.getElementById('time').value;
+            
+            var checkpoints1 = document.getElementById('checkpoints1').value;
+            var answer1 = document.getElementById('answer1').value;
+            var choice1 = document.getElementById('choice1').value;
+            var time1 = document.getElementById('time1').value;
+            
+            var checkpoints2 = document.getElementById('checkpoints2').value;
+            var answer2 = document.getElementById('answer2').value;
+            var choice2 = document.getElementById('choice2').value;
+            var time2 = document.getElementById('time2').value;
+            
+            var checkpoints3 = document.getElementById('checkpoints3').value;
+            var answer3 = document.getElementById('answer3').value;
+            var choice3 = document.getElementById('choice3').value;
+            var time3 = document.getElementById('time3').value;
+            
+            var checkpoints4 = document.getElementById('checkpoints4').value;
+            var answer4 = document.getElementById('answer4').value;
+            var choice4 = document.getElementById('choice4').value;
+            var time4 = document.getElementById('time4').value;
+            
             if(rada.length >0){
                 firebase.database().ref('trackss/' + rada).set({
                 city: linn,
@@ -137,6 +155,7 @@
                 });
             }
         }
+        
     </script>
     
     <button onclick="signInToGoogle()">Sign in</button><br>
