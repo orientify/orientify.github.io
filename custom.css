@@ -2,6 +2,9 @@ button {
     margin: 9px;
 }
 body {
+    width: 100%;
+    height: 100%;
+    margin: auto;
     text-align: center;
     background-color: aqua;
 }
@@ -13,5 +16,5 @@ progress {
 }
 #fileButton {
     text-align: center;
-    margin: 20px;
+    margin: auto;
 }
