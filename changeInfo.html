@@ -72,22 +72,15 @@
                );
         });
     </script>
-    <button onclick="writeTrackName()">Raja nimi</button>
-    <input type="text" id="tekst" placeholder="Raja nimi">
-    <script>
-        function writeTrackName() {
-            var test = document.getElementById('tekst').value;
-          firebase.database().ref('trackss').set({
-            username: test
-          });
-        }
-    </script>
-    
-    <button onclick="writeTrackInfo()">Raja info</button>
-    <input type="text" id="rada" placeholder="Raja nimi" required>
-    <input type="text" id="linn" placeholder="Linn" required>
-    <input type="text" id="kaart" placeholder="Kaardi nimi" required>
+  
+    <button onclick="writeTrackInfo()">Insert track</button>
+    <input type="text" id="rada" placeholder="Track name" required>
+    <input type="text" id="linn" placeholder="City" required>
+    <input type="text" id="kaart" placeholder="Map" required>
     <input type="text" id="checkpoints" placeholder="Checkpoints" required>
+    <input type="text" id="answer" placeholder="Answer" required>
+    <input type="text" id="choice" placeholder="Choice" required>
+    <input type="text" id="time" placeholder="Time" required>
     <script>
         function writeTrackInfo() {
             var rada = document.getElementById('rada').value;
