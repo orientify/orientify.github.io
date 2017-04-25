@@ -11,7 +11,7 @@
 <body>
     
     <progress value="0" max="100" id="uploader">0%</progress><br>
-    <input type="file" value="upload" id="fileButton"/>
+    <input type="file" value="upload" id="fileButton" class="filebutton1"/>
     
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
@@ -98,7 +98,7 @@
     <input type="text" id="answer4" placeholder="Answer">
     <input type="text" id="choice4" placeholder="Choice">
     <input type="text" id="time4" placeholder="Time"><br>
-    <button onclick="writeTrackInfo()">Insert track</button>
+    <button onclick="writeTrackInfo()">Insert track</button><br>
     <script>
         function writeTrackInfo() {
             var rada = document.getElementById('rada').value;
@@ -157,8 +157,6 @@
         }
         
     </script>
-    
-    <button onclick="signInToGoogle()">Sign in</button><br>
     <button onclick="signOutFromGoogle()">Sign out</button>
     
 
