@@ -11,10 +11,8 @@ body {
 img {
     margin-top: 100px;
 }
-progress {
-    margin: 10px;
-}
 #fileButton {
     text-align: center;
     margin: auto;
+    margin-bottom: 9px;
 }
