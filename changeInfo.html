@@ -87,14 +87,24 @@
     <input type="text" id="rada" placeholder="Raja nimi" required>
     <input type="text" id="linn" placeholder="Linn" required>
     <input type="text" id="kaart" placeholder="Kaardi nimi" required>
+    <input type="text" id="checkpoints" placeholder="Checkpoints" required>
     <script>
         function writeTrackInfo() {
             var rada = document.getElementById('rada').value;
             var linn = document.getElementById('linn').value;
             var kaart = document.getElementById('kaart').value;
-          firebase.database().ref('trackss/' + rada).set({
+            var checkpoints = document.getElementById('checkpoints').value;
+            var answer = document.getElementById('answer').value;
+            var choice = document.getElementById('choice').value;
+            var time = document.getElementById('time').value;
+            firebase.database().ref('trackss/' + rada).set({
             city: linn,
             map: kaart
+          });
+            firebase.database().ref('trackss/' + rada + 'checkpoints/' + checkpoints).set({
+            answer: answer,
+            choice: choice,
+            time: time
           });
         }
     </script>
