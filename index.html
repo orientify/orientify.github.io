@@ -34,7 +34,6 @@
         var provider = new firebase.auth.GoogleAuthProvider();
         function signInToGoogle() {
             firebase.auth().signInWithRedirect(provider);
-            window.location = "https://orientify.github.io/changeInfo.html";
         }
         function signOutFromGoogle() {
             firebase.auth().signOut().then(function() {
