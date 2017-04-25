@@ -8,3 +8,6 @@ body {
 img {
     margin-top: 100px;
 }
+progress {
+    margin: 10px;
+}

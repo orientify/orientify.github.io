@@ -4,6 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" href="custom.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
@@ -76,17 +77,33 @@
     <button onclick="writeTrackInfo()">Insert track</button>
     <input type="text" id="rada" placeholder="Track name" required>
     <input type="text" id="linn" placeholder="City" required>
-    <input type="text" id="kaart" placeholder="Map" required>
-    <input type="text" id="checkpoints" placeholder="Checkpoints" required>
-    <input type="text" id="answer" placeholder="Answer" required>
-    <input type="text" id="choice" placeholder="Choice" required>
-    <input type="text" id="time" placeholder="Time" required>
+    <input type="text" id="kaart" placeholder="Map" required><br>
+    
+    <input type="text" id="checkpoints1" placeholder="Checkpoint1" required>
+    <input type="text" id="answer1" placeholder="Answer" required>
+    <input type="text" id="choice1" placeholder="Choice" required>
+    <input type="text" id="time1" placeholder="Time" required><br>
+    
+    <input type="text" id="checkpoints2" placeholder="Checkpoint2" required>
+    <input type="text" id="answer2" placeholder="Answer" required>
+    <input type="text" id="choice2" placeholder="Choice" required>
+    <input type="text" id="time2" placeholder="Time" required><br>
+    
+    <input type="text" id="checkpoints3" placeholder="Checkpoint3" required>
+    <input type="text" id="answer3" placeholder="Answer" required>
+    <input type="text" id="choice3" placeholder="Choice" required>
+    <input type="text" id="time3" placeholder="Time" required><br>
+    
+    <input type="text" id="checkpoints4" placeholder="Checkpoint4" required>
+    <input type="text" id="answer4" placeholder="Answer" required>
+    <input type="text" id="choice4" placeholder="Choice" required>
+    <input type="text" id="time4" placeholder="Time" required><br>
     <script>
         function writeTrackInfo() {
             var rada = document.getElementById('rada').value;
             var linn = document.getElementById('linn').value;
             var kaart = document.getElementById('kaart').value;
-            var checkpoints = document.getElementById('checkpoints').value;
+            var checkpoints = document.getElementById('checkpoints1').value;
             var answer = document.getElementById('answer').value;
             var choice = document.getElementById('choice').value;
             var time = document.getElementById('time').value;
@@ -95,16 +112,34 @@
                 city: linn,
                 map: kaart
               });
-                firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints).set({
-                answer: answer,
-                choice: choice,
-                time: time
+                firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints1).set({
+                answer1: answer1,
+                choice1: choice1,
+                time1: time1
+                });
+                
+                firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints2).set({
+                answer2: answer2,
+                choice2: choice2,
+                time2: time2
+                });
+                
+                firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints3).set({
+                answer3: answer3,
+                choice3: choice3,
+                time3: time3
+                });
+                
+                firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints4.set({
+                answer4: answer4,
+                choice4: choice4,
+                time4: time4
                 });
             }
         }
     </script>
     
-    <button onclick="signInToGoogle()">Sign in</button>
+    <button onclick="signInToGoogle()">Sign in</button><br>
     <button onclick="signOutFromGoogle()">Sign out</button>
     
 
