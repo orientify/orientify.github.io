@@ -24,18 +24,19 @@
             messagingSenderId: "69179275064"
           };
           firebase.initializeApp(config);
+            firebase.auth().onAuthStateChanged(function(user) {
+              if (user) {
+                  console.log("signed in");
+                window.location = "http://www.miniclip.com";
+              } else {
+                // No user is signed in.
+              }
         </script>
     
     <script>
         var provider = new firebase.auth.GoogleAuthProvider();
         function signInToGoogle() {
             firebase.auth().signInWithRedirect(provider);
-            firebase.auth().onAuthStateChanged(function(user) {
-              if (user) {
-                window.location = "http://www.miniclip.com";
-              } else {
-                // No user is signed in.
-              }
             });
         }
         function signOutFromGoogle() {
