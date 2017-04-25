@@ -90,15 +90,17 @@
             var answer = document.getElementById('answer').value;
             var choice = document.getElementById('choice').value;
             var time = document.getElementById('time').value;
-            firebase.database().ref('trackss/' + rada).set({
-            city: linn,
-            map: kaart
-          });
-            firebase.database().ref('trackss/' + rada + 'checkpoints/' + checkpoints).set({
-            answer: answer,
-            choice: choice,
-            time: time
-          });
+            if(rada.length >0){
+                firebase.database().ref('trackss/' + rada).set({
+                city: linn,
+                map: kaart
+              });
+                firebase.database().ref('trackss/' + rada + 'checkpoints/' + checkpoints).set({
+                answer: answer,
+                choice: choice,
+                time: time
+                });
+            }
         }
     </script>
     
