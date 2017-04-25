@@ -11,8 +11,7 @@
 <body>
     
     <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
-    <progress value="0" max="100" id="uploader" class="progress-bar" role="progressbar" >0%</progress><br>
-    
+    <progress value="0" max="100" id="uploader" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:70%" aria-valuenow="0">0%</progress><br>
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
           // Initialize Firebase
