@@ -21,6 +21,13 @@
             messagingSenderId: "69179275064"
           };
           firebase.initializeApp(config);
+            firebase.auth().onAuthStateChanged(function(user) {
+              if (user) {
+                  console.log("signed in");
+                window.location = "https://orientify.github.io/changeInfo.html";
+              } else {
+                console.log("works");
+              }});
         </script>
     
     <script>
@@ -30,7 +37,6 @@
         }
         function signOutFromGoogle() {
             firebase.auth().signOut().then(function() {
-              // Sign-out successful.
             }).catch(function(error) {
               // An error happened.
             }); 
