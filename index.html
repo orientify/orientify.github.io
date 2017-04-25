@@ -1,10 +1,14 @@
 <!DOCTYPE html>
 <html>
-<body>
-    
-    <progress value="0" max="100" id="uploader">0%</progress>
-    <input type="file" value="upload" id="fileButton"/>
-    
+<head>
+    <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+      <link rel="stylesheet" href="custom.css">
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+      <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+</head>
+<body>  
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -32,61 +36,9 @@
             }); 
         }
     </script>
-    
-    <script>
-        var uploader = document.getElementById('uploader');
-        var fileButton = document.getElementById('fileButton');
-        
-        fileButton.addEventListener('change', function(e){
-            var file = e.target.files[0];
-            
-            var storageRef = firebase.storage().ref('maps/' + file.name);
-            
-            var task = storageRef.put(file);
-            
-            task.on('state_changed',
-                   function progress(snapshot) {
-                        var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                        uploader.value = percentage;
-            },
-                function error(err){
-                
-            },
-                function complete(){
-                
-            }
-               );
-        });
-    </script>
-    <button onclick="writeTrackName()">Raja nimi</button>
-    <input type="text" id="tekst" placeholder="Raja nimi">
-    <script>
-        function writeTrackName() {
-            var test = document.getElementById('tekst').value;
-          firebase.database().ref('trackss').set({
-            username: test
-          });
-        }
-    </script>
-    
-    <button onclick="writeTrackInfo()">Raja info</button>
-    <input type="text" id="rada" placeholder="Raja nimi">
-    <input type="text" id="linn" placeholder="Linn">
-    <input type="text" id="kaart" placeholder="Kaardi nimi">
-    <script>
-        function writeTrackInfo() {
-            var rada = document.getElementById('rada').value;
-            var linn = document.getElementById('linn').value;
-            var kaart = document.getElementById('kaart').value;
-          firebase.database().ref('trackss/' + rada).set({
-            city: linn,
-            map: kaart
-          });
-        }
-    </script>
-    
-    <button onclick="signInToGoogle()">Sign in</button>
-    <button onclick="signOutFromGoogle()">Sign out</button>
+    <img src="pageImg.png"alt="Cinque Terre"><br>
+    <button onclick="signInToGoogle()" class="btn btn-primary">Sign in</button><br>
+    <button onclick="signOutFromGoogle()" class="btn btn-primary">Sign out</button>
     
 
 
