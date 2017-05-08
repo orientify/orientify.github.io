@@ -9,47 +9,55 @@
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
     <style>
-    .tooltip {
-        position: relative;
-        display: inline-block;
-        border-bottom: 1px dotted black;
-    }
+[data-tip] {
+	position:relative;
 
-    .tooltip .tooltiptext {
-        visibility: hidden;
-        width: 120px;
-        background-color: #555;
-        color: #fff;
-        text-align: center;
-        border-radius: 6px;
-        padding: 5px 0;
-        position: absolute;
-        z-index: 1;
-        bottom: 125%;
-        left: 50%;
-        margin-left: -60px;
-        opacity: 0;
-        transition: opacity 0.4s;
-    }
-
-    .tooltip .tooltiptext::after {
-        content: "";
-        position: absolute;
-        top: 100%;
-        left: 50%;
-        margin-left: -5px;
-        border-width: 5px;
-        border-style: solid;
-        border-color: #555 transparent transparent transparent;
-    }
-
-    .tooltip:hover .tooltiptext {
-        visibility: visible;
-        opacity: 1;
-    }
+}
+[data-tip]:before {
+	content:'';
+	/* hides the tooltip when not hovered */
+	display:none;
+	content:'';
+	border-left: 5px solid transparent;
+	border-right: 5px solid transparent;
+	border-bottom: 5px solid #1a1a1a;	
+	position:absolute;
+	top:30px;
+	left:35px;
+	z-index:8;
+	font-size:0;
+	line-height:0;
+	width:0;
+	height:0;
+}
+[data-tip]:after {
+	display:none;
+	content:attr(data-tip);
+	position:absolute;
+	top:35px;
+	left:0px;
+	padding:5px 8px;
+	background:#1a1a1a;
+	color:#fff;
+	z-index:9;
+	font-size: 0.75em;
+	height:18px;
+	line-height:18px;
+	-webkit-border-radius: 3px;
+	-moz-border-radius: 3px;
+	border-radius: 3px;
+	white-space:nowrap;
+	word-wrap:normal;
+}
+[data-tip]:hover:before,
+[data-tip]:hover:after {
+	display:block;
+}
 </style>
 <body>
-    <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
+    <div data-tip="This is the text of the tooltip2">
+        <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
+    </div>
         
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
@@ -111,12 +119,9 @@
                );
         });
     </script>
-  
-    <div class="tooltip">
-    <input type="text" id="rada" placeholder="Track name" class="form-control">
-        <span class="tooltiptext">
-            Lisa üles kaart!
-        </span>
+    
+    <div data-tip="Track name">
+        <input type="text" id="rada" placeholder="Track name" class="form-control">
     </div>
     <input type="text" id="linn" placeholder="City" class="form-control">
     <input type="text" id="kaart" placeholder="Map" class="form-control"><br>
