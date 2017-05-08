@@ -8,10 +8,54 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
+    <style>
+    .tooltip {
+        position: relative;
+        display: inline-block;
+        border-bottom: 1px dotted black;
+    }
+
+    .tooltip .tooltiptext {
+        visibility: hidden;
+        width: 120px;
+        background-color: #555;
+        color: #fff;
+        text-align: center;
+        border-radius: 6px;
+        padding: 5px 0;
+        position: absolute;
+        z-index: 1;
+        bottom: 125%;
+        left: 50%;
+        margin-left: -60px;
+        opacity: 0;
+        transition: opacity 0.4s;
+    }
+
+    .tooltip .tooltiptext::after {
+        content: "";
+        position: absolute;
+        top: 100%;
+        left: 50%;
+        margin-left: -5px;
+        border-width: 5px;
+        border-style: solid;
+        border-color: #555 transparent transparent transparent;
+    }
+
+    .tooltip:hover .tooltiptext {
+        visibility: visible;
+        opacity: 1;
+    }
+</style>
 <body>
-    
-    <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
-    <progress value="0" max="100" id="uploader" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:70%" aria-valuenow="0">0%</progress><br>
+    <div class="tooltip">
+        <span class="tooltiptext">
+            <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
+            <progress value="0" max="100" id="uploader" class="progress-bar" role="progressbar" aria-valuemin="0" aria-valuemax="100" style="width:70%" aria-valuenow="0">0%</progress><br>
+        </span>
+    </div>
+        
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
           // Initialize Firebase
