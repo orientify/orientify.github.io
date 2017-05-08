@@ -50,13 +50,6 @@
 </style>
 <body>
     <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
-    <div class="tooltip">
-        <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
-            
-        <span class="tooltiptext">
-            Lisa üles kaart!
-        </span>
-    </div>
         
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
@@ -119,8 +112,12 @@
         });
     </script>
   
-    
+    <div class="tooltip">
     <input type="text" id="rada" placeholder="Track name" class="form-control">
+        <span class="tooltiptext">
+            Lisa üles kaart!
+        </span>
+    </div>
     <input type="text" id="linn" placeholder="City" class="form-control">
     <input type="text" id="kaart" placeholder="Map" class="form-control"><br>
     
