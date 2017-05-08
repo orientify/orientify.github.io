@@ -8,57 +8,63 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
-    <style>
-[data-tip] {
-	position:relative;
-
-}
-[data-tip]:before {
-	content:'';
-	/* hides the tooltip when not hovered */
-	display:none;
-	content:'';
-	border-left: 5px solid transparent;
-	border-right: 5px solid transparent;
-	border-bottom: 5px solid #1a1a1a;	
-	position:absolute;
-	top:30px;
-	left:35px;
-	z-index:8;
-	font-size:0;
-	line-height:0;
-	width:0;
-	height:0;
-}
-[data-tip]:after {
-	display:none;
-	content:attr(data-tip);
-	position:absolute;
-	top:35px;
-	left:0px;
-	padding:5px 8px;
-	background:#1a1a1a;
-	color:#fff;
-	z-index:9;
-	font-size: 0.75em;
-	height:18px;
-	line-height:18px;
-	-webkit-border-radius: 3px;
-	-moz-border-radius: 3px;
-	border-radius: 3px;
-	white-space:nowrap;
-	word-wrap:normal;
-}
-[data-tip]:hover:before,
-[data-tip]:hover:after {
-	display:block;
-}
-</style>
+    <h1>Uue kaardi laadimise leht</h1>
 <body>
-    <div data-tip="This is the text of the tooltip2">
-        <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
+   <div class="container">
+  <!-- Trigger the modal with a button -->
+  <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Kaart</button><br>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">1.Checkpoint</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">2.Checkpoint</button>
+  <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal">3.Checkpoint</button>
+
+  <!-- Modal -->
+  <div class="modal fade" id="myModal1" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <p>Tere</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
     </div>
-        
+  </div>
+       
+<div class="modal fade" id="myModal2" role="dialog">
+    <div class="modal-dialog">
+    
+      <!-- Modal content-->
+      <div class="modal-content">
+        <div class="modal-header">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+          <h4 class="modal-title">Modal Header</h4>
+        </div>
+        <div class="modal-body">
+          <input type="text" id="checkpoints1" placeholder="Checkpoint1" class="form-control">
+            <input type="text" id="answer1" placeholder="Answer" class="form-control">
+            <input type="text" id="choice1" placeholder="Choice" class="form-control">
+            <input type="text" id="time1" placeholder="Time" class="form-control"><br>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+      
+    </div>
+  </div>
+  
+</div>
+    <p>Lae üles kaart:</p>
+    <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
+  
     <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script>
           // Initialize Firebase
@@ -76,7 +82,7 @@
               if (user) {
                   console.log("signed in");
               } else {
-                window.location = "https://orientify.github.io/index.html";
+                //window.location = "https://orientify.github.io/index.html";
               }});
         </script>
     
@@ -120,9 +126,7 @@
         });
     </script>
     
-    <div data-tip="Track name">
-        <input type="text" id="rada" placeholder="Track name" class="form-control">
-    </div>
+    <input type="text" id="rada" placeholder="Track name" class="form-control">
     <input type="text" id="linn" placeholder="City" class="form-control">
     <input type="text" id="kaart" placeholder="Map" class="form-control"><br>
     
@@ -202,8 +206,9 @@
                 });
             }
         }
-        
+    
     </script>
+
     <button onclick="signOutFromGoogle()" class="btn-danger">Sign out</button>
     
 
