@@ -221,7 +221,8 @@
                 map: kaart
               });
                 for(var x = 1; x < 4; x++){
-                    firebase.database.ref('trackss/' + rada + '/checkpoints/' checkpoints + x).set({
+                    console.log('trackss/' + rada + '/checkpoints/' + checkpoints + x);
+                    firebase.database.ref('trackss/' + rada + '/checkpoints/' + checkpoints + x).set({
                     answer: answer + x,
                     choice: choice + x,
                     time: time + x
