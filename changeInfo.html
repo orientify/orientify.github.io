@@ -215,6 +215,20 @@
             var choice3 = document.getElementById('choice3').value;
             var time3 = document.getElementById('time3').value;
             
+            if(rada.length >0){
+                firebase.database().ref('trackss/' + rada).set({
+                city: linn,
+                map: kaart
+              });
+                for(var x = 1; x < 4; x++){
+                    firebase.database.ref('trackss/' + rada + '/checkpoints/' checkpoints + x).set({
+                    answer: answer + x,
+                    choice: choice + x,
+                    time: time + x
+                    });
+                }
+                
+            }
         }
     
     </script>
