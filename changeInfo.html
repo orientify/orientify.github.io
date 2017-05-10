@@ -223,7 +223,7 @@
                 for(var x = 1; x < 4; x++){
                     var c = 'checkpoints' + x;
                     console.log('trackss/' + rada + '/checkpoints/' + c);
-                    firebase.database.ref('trackss/' + rada + '/checkpoints/' + c).set({
+                    firebase.database().ref('trackss/' + rada + '/checkpoints/' + c).set({
                     answer: answer + x,
                     choice: choice + x,
                     time: time + x
