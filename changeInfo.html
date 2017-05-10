@@ -222,11 +222,14 @@
               });
                 for(var x = 1; x < 4; x++){
                     var c = 'checkpoints' + x;
+                    var varAnswer = 'answer' + x;
+                    var varChoice = 'choice' + x;
+                    var varTime = 'time' + x;
                     console.log('trackss/' + rada + '/checkpoints/' + c);
                     firebase.database().ref('trackss/' + rada + '/checkpoints/' + c).set({
-                    answer: answer + x,
-                    choice: choice + x,
-                    time: time + x
+                    answer: varAnswer,
+                    choice: varChoice,
+                    time: varTime
                     });
                 }
                 
