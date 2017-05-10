@@ -205,10 +205,10 @@
             var choice = [];
             var time = [];
             for(var i = 1; i < 3; i++){
-                console.log('checkpoints' + i);
-                console.log(checkpoints[i]);
-                console.log(document.getElementById('checkpoints' + i).value)
-
+                checkpoints[i] = document.getElementById('checkpoints' + i).value;
+                answer[i] = document.getElementById('answer' + i).value;
+                choice[i] = document.getElementById('choice' + i).value;
+                time[i] = document.getElementById('time' + i).value;
             }
             
             if(rada.length >0){
