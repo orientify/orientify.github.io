@@ -29,7 +29,7 @@ function writeTrackInfo() {
         var answer = [];
         var choice = [];
         var time = [];
-        for(var i = 1; i < 5; i++){
+        for(var i = 1; i < 3; i++){
             checkpoints[i] = document.getElementById('checkpoints' + i).value;
             answer[i] = document.getElementById('answer' + i).value;
             choice[i] = document.getElementById('choice' + i).value;
