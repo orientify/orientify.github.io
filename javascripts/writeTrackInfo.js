@@ -53,6 +53,8 @@ function writeTrackInfo() {
         }
     }
 }
-
-document.getElementById("logOut").onclick = signOutFromGoogle;
+$(function() {
+    document.getElementById("logOut").onclick = signOutFromGoogle;
+    console.log("tere");
+});
 
