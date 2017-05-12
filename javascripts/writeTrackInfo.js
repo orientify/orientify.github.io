@@ -41,7 +41,7 @@ function writeTrackInfo() {
                 city: linn,
                 map: mapName
             });
-            for(var i = 1; i < 5; i++){
+            for(var i = 1; i < 3; i++){
                 console.log('trackss/' + rada + '/checkpoints/' + checkpoints[i]);
                 firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints[i]).set({
                     answer: answer[i],
