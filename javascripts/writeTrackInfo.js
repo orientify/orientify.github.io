@@ -54,3 +54,5 @@ function writeTrackInfo() {
     }
 }
 
+document.getElementById("logOut").onclick = signOutFromGoogle;
+

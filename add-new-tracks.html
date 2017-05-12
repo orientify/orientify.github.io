@@ -4,14 +4,14 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        <link rel="stylesheet" href="custom.css">
+        <link rel="stylesheet" href="styles/custom.css">
 
     </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="add-new-tracks.html">Orientifty</a>
+                    <a class="navbar-brand" href="add-new-tracks.html">Orientify</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="add-new-tracks.html">Add new tracks</a></li>
@@ -20,7 +20,7 @@
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
 
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+                    <li id = "logOut"><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
                 </ul>
             </div>
         </nav>
@@ -29,8 +29,6 @@
             <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Kaart</button><br>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">1.Checkpoint</button>
             <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">2.Checkpoint</button>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal3">3.Checkpoint</button>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal4">4.Checkpoint</button>
 
             <!-- Modal -->
             <div class="modal fade" id="myModal" role="dialog">
@@ -101,51 +99,6 @@
 
                 </div>
             </div>
-            <div class="modal fade" id="myModal3" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Checkpoint 3</h4>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="checkpoints3" placeholder="Checkpoint3" class="form-control">
-                            <input type="text" id="answer3" placeholder="Answer" class="form-control">
-                            <input type="text" id="choice3" placeholder="Choice" class="form-control">
-                            <input type="text" id="time3" placeholder="Time" class="form-control"><br>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-            <div class="modal fade" id="myModal4" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Checkpont 4</h4>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="checkpoints4" placeholder="Checkpoint4" class="form-control">
-                            <input type="text" id="answer4" placeholder="Answer" class="form-control">
-                            <input type="text" id="choice4" placeholder="Choice" class="form-control">
-                            <input type="text" id="time4" placeholder="Time" class="form-control"><br>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-
-                </div>
-            </div>
-
         </div>
         <p>Lae üles kaart:</p>
         <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
