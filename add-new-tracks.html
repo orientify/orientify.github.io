@@ -5,8 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="custom.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -15,12 +14,12 @@
                     <a class="navbar-brand" href="changeInfo.html">Orientifty</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="changeInfo.html">Load new tracks</a></li>
-                    <li><a href="availableTracks.html">Available tracks</a></li>
-                    <li class="active"><a href="loadNewTracks.html">How to load new tracks</a></li>
+                    <li class="active"><a href="add-new-tracks.html">Add new tracks</a></li>
+                    <li><a href="available-tracks.html">Available tracks</a></li>
+                    <li><a href="help.html">Help</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    
+
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
                 </ul>
             </div>
@@ -151,102 +150,8 @@
         <p>Lae üles kaart:</p>
         <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
 
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyALh9SrPLPXUJuRW2dVtR_dKVvQXDhmRS0",
-                authDomain: "suva-6c5b6.firebaseapp.com",
-                databaseURL: "https://suva-6c5b6.firebaseio.com",
-                projectId: "suva-6c5b6",
-                storageBucket: "suva-6c5b6.appspot.com",
-                messagingSenderId: "69179275064"
-            };
-            firebase.initializeApp(config);
-            console.log("ssd");
-            firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
-                    console.log("signed in");
-                } else {
-                    //window.location = "https://orientify.github.io/index.html";
-                }});
-        </script>
-
-        <script>
-            var provider = new firebase.auth.GoogleAuthProvider();
-            function signInToGoogle() {
-                firebase.auth().signInWithRedirect(provider);
-            };
-            function signOutFromGoogle() {
-                firebase.auth().signOut().then(function() {
-                    // Sign-out successful.
-                }).catch(function(error) {
-                    // An error happened.
-                }); 
-            }
-        </script>
-
-        <script>
-            var uploader = document.getElementById('uploader');
-            var fileButton = document.getElementById('fileButton');
-
-            fileButton.addEventListener('change', function(e){
-                var file = e.target.files[0];
-
-                var storageRef = firebase.storage().ref('maps/' + file.name);
-
-                var task = storageRef.put(file);
-
-                task.on('state_changed',
-                        function progress(snapshot) {
-                    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    uploader.value = percentage;
-                },
-                        function error(err){
-
-                },
-                        function complete(){
-
-                }
-                       );
-            });
-        </script>
-        <script>
-            function writeTrackInfo() {
-                var rada = document.getElementById('rada').value;
-                var linn = document.getElementById('linn').value;
-                var kaart = document.getElementById('kaart').value;
-
-                var checkpoints = [];
-                var answer = [];
-                var choice = [];
-                var time = [];
-                for(var i = 1; i < 5; i++){
-                    checkpoints[i] = document.getElementById('checkpoints' + i).value;
-                    answer[i] = document.getElementById('answer' + i).value;
-                    choice[i] = document.getElementById('choice' + i).value;
-                    time[i] = document.getElementById('time' + i).value;
-                }
-
-                if(rada.length >0){
-                    firebase.database().ref('trackss/' + rada).set({
-                        city: linn,
-                        map: kaart
-                    });
-                    for(var i = 1; i < 5; i++){
-                        console.log('trackss/' + rada + '/checkpoints/' + checkpoints[i]);
-                        firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints[i]).set({
-                            answer: answer[i],
-                            choice: choice[i],
-                            time: time[i]
-                        });
-                    }
-                }
-            }
-
-        </script>
         <button onclick="writeTrackInfo()" class="btn btn-success">Insert track</button>
-        <button onclick="readDataFromFire()" class="btn btn-success">test</button><br>
+        <button onclick="readDataFromFire()" class="btn btn-success">Load new tracks</button><br>
         <button onclick="signOutFromGoogle()" class="btn btn-danger">Sign out</button>
 
         <table id="myTable">
@@ -255,10 +160,10 @@
                 <th>Name of track</th>
             </tr>
         </table>
-
-
-
-
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+        <script type="text/javascript" src="javascripts/firebase.js"></script>
+        <script type="text/javascript" src="javascripts/writeTrackInfo.js"></script>
     </body>
 </html>

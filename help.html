@@ -7,10 +7,6 @@
         <link rel="stylesheet" href="custom.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
-        <script type="text/javascript" src="javascripts/firebase.js"></script>
-        <script type="text/javascript" src="javascripts/loadTracks.js"></script>
-
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -19,32 +15,15 @@
                     <a class="navbar-brand" href="changeInfo.html">Orientifty</a>
                 </div>
                 <ul class="nav navbar-nav">
-                    <li><a href="changeInfo.html">Load new tracks</a></li>
-                    <li class="active"><a href="availableTracks.html">Available tracks</a></li>
-                    <li><a href="loadNewTracks.html">How to load new tracks</a></li>
+                    <li><a href="add-new-tracks.html">Load new tracks</a></li>
+                    <li><a href="available-tracks.html">Available tracks</a></li>
+                    <li class="active"><a href="help.html">Help</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
+                    
                     <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
                 </ul>
             </div>
         </nav>
-
-        <table id="myTable">
-            <tr>
-                <th>City</th>
-                <th>Name of track</th>
-            </tr>
-        </table>
-        <script>
-            $( document ).ready(function() {
-                readDataFromFire();
-            });
-        </script>
-
-
-
-
-
-
     </body>
 </html>
