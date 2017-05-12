@@ -5,18 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/custom.css">
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
-        <script type="text/javascript" src="javascripts/firebase.js"></script>
-        <script type="text/javascript" src="javascripts/loadTracks.js"></script>
+        
 
     </head>
     <body>
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
-                    <a class="navbar-brand" href="add-new-tracks.html">Orientifty</a>
+                    <a class="navbar-brand" href="add-new-tracks.html">Orientify</a>
                 </div>
                 <ul class="nav navbar-nav">
                     <li><a href="add-new-tracks.html">Add new tracks</a></li>
@@ -24,7 +20,7 @@
                     <li><a href="help.html">Help</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
-                    <li><a href="#"><span class="glyphicon glyphicon-log-in"></span> Log out</a></li>
+                    <li id = "logOut"><span class="glyphicon glyphicon-log-in"></span> Log out</li>
                 </ul>
             </div>
         </nav>
@@ -35,6 +31,10 @@
                 <th>Name of track</th>
             </tr>
         </table>
-
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+        <script type="text/javascript" src="javascripts/firebase.js"></script>
+        <script type="text/javascript" src="javascripts/loadTracks.js"></script>
     </body>
 </html>
