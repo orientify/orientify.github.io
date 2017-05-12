@@ -1,4 +1,4 @@
-function readDataFromFire(){
+$(function() {
     var starCountRef = firebase.database().ref('trackNames/');
     starCountRef.on('value', function(snapshot) {
         var hey = snapshot.val();
@@ -15,4 +15,7 @@ function readDataFromFire(){
             cell2.innerHTML = hey[key].name;
         }
     });
-}
+  readDataFromFire();
+
+});
+
