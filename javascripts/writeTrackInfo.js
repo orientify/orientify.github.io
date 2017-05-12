@@ -1,6 +1,5 @@
-
+var mapName;
 $(function() {
-    var mapName;
     fileButton.addEventListener('change', function(e){
         var file = e.target.files[0];
         var storageRef = firebase.storage().ref('maps/' + file.name);
