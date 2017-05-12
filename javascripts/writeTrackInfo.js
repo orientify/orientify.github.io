@@ -5,6 +5,7 @@ fileButton.addEventListener('change', function(e){
     var storageRef = firebase.storage().ref('maps/' + file.name);
     var task = storageRef.put(file);
     var t = this.value;
+    t = t.replace(/.*[\/\\]/, '');
     console.log(t);
 
 });
