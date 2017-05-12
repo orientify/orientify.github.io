@@ -10,7 +10,18 @@ $(function() {
 
     });
 
-    function writeTrackInfo() {
+    
+
+    document.getElementById("logOut").onclick = signOutFromGoogle;
+    console.log("tere");
+
+    document.getElementById('fileButton').onchange = function () {
+        alert('Selected file: ' + this.value);
+        console.log(this.value);
+    };
+});
+
+function writeTrackInfo() {
         var rada = document.getElementById('rada').value;
         var linn = document.getElementById('linn').value;
 
@@ -41,12 +52,4 @@ $(function() {
         }
     }
 
-    document.getElementById("logOut").onclick = signOutFromGoogle;
-    console.log("tere");
-
-    document.getElementById('fileButton').onchange = function () {
-        alert('Selected file: ' + this.value);
-        console.log(this.value);
-    };
-});
 
