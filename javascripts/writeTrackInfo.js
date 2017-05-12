@@ -56,5 +56,10 @@ function writeTrackInfo() {
 $(function() {
     document.getElementById("logOut").onclick = signOutFromGoogle;
     console.log("tere");
+
+    document.getElementById('fileInput').onchange = function () {
+        alert('Selected file: ' + this.value);
+        console.log(this.value);
+    };
 });
 
