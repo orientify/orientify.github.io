@@ -3,3 +3,9 @@ body {
     background-size: cover;
 	background-image: url("../pageImg.png");
 }
+p {
+    font-family: sans-serif;
+}
+.container {
+    margin-top: 100px;
+}
