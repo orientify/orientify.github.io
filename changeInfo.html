@@ -7,6 +7,8 @@
         <link rel="stylesheet" href="custom.css">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
+        <script type="text/javascript" src="firebase.js"></script>
     </head>
     <body>
         <nav class="navbar navbar-inverse">
@@ -151,120 +153,6 @@
         <p>Lae üles kaart:</p>
         <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
 
-        <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
-        <script>
-            // Initialize Firebase
-            var config = {
-                apiKey: "AIzaSyALh9SrPLPXUJuRW2dVtR_dKVvQXDhmRS0",
-                authDomain: "suva-6c5b6.firebaseapp.com",
-                databaseURL: "https://suva-6c5b6.firebaseio.com",
-                projectId: "suva-6c5b6",
-                storageBucket: "suva-6c5b6.appspot.com",
-                messagingSenderId: "69179275064"
-            };
-            firebase.initializeApp(config);
-            console.log("ssd");
-            firebase.auth().onAuthStateChanged(function(user) {
-                if (user) {
-                    console.log("signed in");
-                } else {
-                    //window.location = "https://orientify.github.io/index.html";
-                }});
-        </script>
-
-        <script>
-            var provider = new firebase.auth.GoogleAuthProvider();
-            function signInToGoogle() {
-                firebase.auth().signInWithRedirect(provider);
-            };
-            function signOutFromGoogle() {
-                firebase.auth().signOut().then(function() {
-                    // Sign-out successful.
-                }).catch(function(error) {
-                    // An error happened.
-                }); 
-            }
-        </script>
-
-        <script>
-            var uploader = document.getElementById('uploader');
-            var fileButton = document.getElementById('fileButton');
-
-            fileButton.addEventListener('change', function(e){
-                var file = e.target.files[0];
-
-                var storageRef = firebase.storage().ref('maps/' + file.name);
-
-                var task = storageRef.put(file);
-
-                task.on('state_changed',
-                        function progress(snapshot) {
-                    var percentage = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-                    uploader.value = percentage;
-                },
-                        function error(err){
-
-                },
-                        function complete(){
-
-                }
-                       );
-            });
-        </script>
-        <script>
-            function writeTrackInfo() {
-                var rada = document.getElementById('rada').value;
-                var linn = document.getElementById('linn').value;
-                var kaart = document.getElementById('kaart').value;
-
-                var checkpoints = [];
-                var answer = [];
-                var choice = [];
-                var time = [];
-                for(var i = 1; i < 5; i++){
-                    checkpoints[i] = document.getElementById('checkpoints' + i).value;
-                    answer[i] = document.getElementById('answer' + i).value;
-                    choice[i] = document.getElementById('choice' + i).value;
-                    time[i] = document.getElementById('time' + i).value;
-                }
-
-                if(rada.length >0){
-                    firebase.database().ref('trackss/' + rada).set({
-                        city: linn,
-                        map: kaart
-                    });
-                    for(var i = 1; i < 5; i++){
-                        console.log('trackss/' + rada + '/checkpoints/' + checkpoints[i]);
-                        firebase.database().ref('trackss/' + rada + '/checkpoints/' + checkpoints[i]).set({
-                            answer: answer[i],
-                            choice: choice[i],
-                            time: time[i]
-                        });
-                    }
-                }
-            }
-
-        </script>
-        <script>
-            function readDataFromFire(){
-                var starCountRef = firebase.database().ref('trackNames/');
-                starCountRef.on('value', function(snapshot) {
-                    var hey = snapshot.val();
-                    var hey1 = snapshot.val();
-                    console.log(hey);
-                    console.log(hey1["1"]);
-                    console.log(hey1["1"].city);
-                    for (var key in hey) {
-                        var table = document.getElementById("myTable");
-                        var row = table.insertRow(-1);
-                        var cell1 = row.insertCell(0);
-                        var cell2 = row.insertCell(1);
-                        cell1.innerHTML = hey[key].city;
-                        cell2.innerHTML = hey[key].name;
-                    }
-                });
-            }
-        </script>
         <button onclick="writeTrackInfo()" class="btn btn-success">Insert track</button>
         <button onclick="readDataFromFire()" class="btn btn-success">Load new tracks</button><br>
         <button onclick="signOutFromGoogle()" class="btn btn-danger">Sign out</button>
