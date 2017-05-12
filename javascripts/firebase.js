@@ -13,7 +13,7 @@ firebase.auth().onAuthStateChanged(function(user) {
     if (user) {
         console.log("signed in");
     } else {
-        window.location = "//orientify.github.io/index.html";
+        window.location = "https://orientify.github.io/index.html";
     }});
 
 
