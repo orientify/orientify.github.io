@@ -5,9 +5,26 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
         <link rel="stylesheet" href="styles/custom.css">
-
     </head>
     <body>
+
+        <!-- Checkpoint template -->
+        <script id="checkpoint-tpl" type="x-tmpl-mustache">
+            <div class="checkpoint-wrapper">
+                <h4>Checkpoint {{ counter }}</h4>
+                <div class="form-group">
+                    <input type="text" id="answer{{ counter }}" placeholder="Right answer, example:A" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="choice{{ counter }}" placeholder="Choices, example: 3" class="form-control">
+                </div>
+                <div class="form-group">
+                    <input type="text" id="time{{ counter }}" placeholder="Time:true,false" class="form-control"><br>
+                </div>
+            </div>
+        </script>
+        <!-- /Checkpoint template -->
+
         <nav class="navbar navbar-inverse">
             <div class="container-fluid">
                 <div class="navbar-header">
@@ -24,88 +41,52 @@
             </div>
         </nav>
         <div class="container">
-            <!-- Trigger the modal with a button -->
-            <button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#myModal">Kaart</button><br>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal1">1.Checkpoint</button>
-            <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#myModal2">2.Checkpoint</button>
 
-            <!-- Modal -->
-            <div class="modal fade" id="myModal" role="dialog">
-                <div class="modal-dialog">
+            <h1>Add track</h1>
 
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Basic track info</h4>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="rada" placeholder="Track name" class="form-control">
-                            <input type="text" id="linn" placeholder="City where track is located" class="form-control">
-                            <input type="text" id="length" placeholder="Distance of track in kilometers" class="form-control">
-                            <br>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-
+            <!-- Add track -->
+            <form class="col-md-6 col-md-offset-3 text-left">
+                <fieldset>
+                    <legend>Track details</legend>
+                <div class="form-group">
+                    <label for="rada">Track name:</label>
+                    <input type="text" id="rada" placeholder="Track name" class="form-control">
                 </div>
-            </div>
-
-            <div class="modal fade" id="myModal1" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Checkpoint 1</h4>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="answer1" placeholder="Right answer, example:A" class="form-control">
-                            <input type="text" id="choice1" placeholder="Choices, example: 3" class="form-control">
-                            <input type="text" id="time1" placeholder="Time:true,false" class="form-control"><br>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-
+                <div class="form-group">
+                    <label for="rada">City where track is located:</label>
+                    <input type="text" id="linn" placeholder="City where track is located" class="form-control">
                 </div>
-            </div>
-            <div class="modal fade" id="myModal2" role="dialog">
-                <div class="modal-dialog">
-
-                    <!-- Modal content-->
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                            <h4 class="modal-title">Checkpoint 2</h4>
-                        </div>
-                        <div class="modal-body">
-                            <input type="text" id="answer2" placeholder="Right answer, example:A" class="form-control">
-                            <input type="text" id="choice2" placeholder="Choices, example: 3" class="form-control">
-                            <input type="text" id="time2" placeholder="Time:true,false" class="form-control"><br>
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">Save</button>
-                        </div>
-                    </div>
-
+                <div class="form-group">
+                    <label for="length">Distance of track in kilometers:</label>
+                    <input type="number" id="length" placeholder="Distance of track in kilometers" class="form-control">
                 </div>
-            </div>
+                <div class="form-group">
+                    <label for="fileButton">Map file (jpg or png format):</label>
+                    <input type="file" value="upload" id="fileButton" class="form-control">
+                </div>
+                </fieldset>
+
+                <fieldset>
+                    <legend>
+                        Checkpoints
+                        <div class="pull-right">
+                            <a class="add-checkpoint btn btn-sm pull-right">Add checkpoint</a>
+                        </div>
+                    </legend>
+                </fieldset>
+
+                <div class="form-group text-center">
+                    <button onclick="writeTrackInfo()" class="btn btn-success">Insert track</button>
+                </div>
+
+            </form>
         </div>
-        <p>Lae üles kaart:</p>
-        <input type="file" value="upload" id="fileButton" class="btn btn-default btn-file" />
-        
-
-        <button onclick="writeTrackInfo()" class="btn btn-success">Insert track</button>
 
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
         <script src="https://www.gstatic.com/firebasejs/3.8.0/firebase.js"></script>
         <script type="text/javascript" src="javascripts/firebase.js"></script>
+        <script src="bower_components/mustache.js/mustache.js"></script>
         <script type="text/javascript" src="javascripts/writeTrackInfo.js"></script>
     </body>
 </html>

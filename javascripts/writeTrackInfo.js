@@ -70,4 +70,13 @@ function sleep(delay) {
 }
 
 
+$('.add-checkpoint').on('click', function() {
+    var counter = 1 + $('.checkpoint-wrapper').length;
+    var tpl = $('#checkpoint-tpl').html();
+    Mustache.parse(tpl);
+    var rendered = Mustache.render(tpl, {counter: counter});
+    $(rendered).appendTo(this.closest("fieldset"));
+});
+
+
 
